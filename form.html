@@ -1,0 +1,214 @@
+<html>
+    <head>
+        <title>My Task</title>
+        <style>
+            body{
+                background-color: black;
+                justify-content: center;
+                padding: 40px;
+                margin: auto;
+                display: flex;
+            }
+            .main-container{
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            color: #333;
+            }
+
+             .title{
+                text-align: center;
+                font-weight: bold;
+                color: deeppink;
+               margin-bottom: 25px;
+            }
+            .subcontainer{
+                  border: 1px solid #ddd;
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                position: relative;
+            }
+            .subcontainer:hover{
+               background-color: pink; 
+               border: 2px solid #ff69b4;
+            }
+            .hidden-fields {
+            display: none;
+            }
+
+/* When hovering on the parent subcontainer, show it */
+            .subcontainer:hover .hidden-fields {
+                display: block;
+   
+            }       
+         select {
+            margin: 5px 10px 5px 0;
+            padding: 5px;
+         }
+
+           .subcontainer input{
+                margin-right: 1px;
+              
+            }
+            .badge{
+                padding: 2px 5px;
+                background-color: deeppink;
+                text-align: right;
+                width: auto;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+              .btn {
+      background: deeppink;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+            .total{
+                margin: 10px 0;
+                font-weight: bold;
+            }
+
+            .freedelivery{
+                margin-bottom: 10px;
+                color: deeppink;
+                 font-size: 12px;
+            }
+            .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff69b4;
+            color: white;
+            padding: 5px 8px;
+            font-size: 12px;
+            border-radius: 8px;
+            }
+            
+        </style>
+        </head>
+        <body>
+            <div class="main-container">
+                <h2 class="title">----- Bundle & Save -----</h2>
+                <div class="subcontainer">
+                    <label >
+                        <input type="radio" value="1" name ="pair" onclick="updateTotal()"> 1 Pair  
+                        <span class="badge">50% OFF</span>   - DKK 195.00
+                    </label>
+                    <div class="hidden-fields" >
+
+                        <label for="size">#1:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                            <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select><br><br>
+                        
+                        <label for="size">#2:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                        <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select>
+                        </div>
+                       
+                    </div>
+
+                    <div class="subcontainer">
+                        <div class="popular-badge">Most Popular</div>
+                    <label for="name">
+                        <input type="radio" value="2" name ="pair" onclick="updateTotal()"> 2 Pair
+                        <span class="badge">40%off</span>- DKK 345.00 
+                    </label>
+
+
+                        <div class="hidden-fields" >
+
+                        <label for="size">#1:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                            <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select><br><br>
+                        
+                        <label for="size">#2:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                        <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select>
+                        </div>
+                    </div>  
+                 
+
+                    <div class="subcontainer">
+                        <label for="name">
+                        <input type="radio" value="3"  name ="pair" onclick="updateTotal()"> 3 Pair
+                        <span class="badge">60%off</span>   - DKK 528.00
+                        </label>
+
+                        <div class="hidden-fields">
+
+                        <label for="size">#1:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                            <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select><br><br>
+                        
+                        <label for="size">#2:</label>
+                        <select>
+                            <option>s</option>
+                             <option>M</option>
+                        </select>
+                        <select>
+                            <option>Black</option>
+                             <option>Colour</option>
+                        </select>
+                        </div>
+                       
+                    </div>
+                    <p class="freedelivery">Free 2 Day shipping</p>
+                  <p class="total" id="total">Total: DKK 0.00</p>
+                    <button class="btn">+ Add to Cart</button>
+                </div>
+
+
+                  <script>
+    function updateTotal() {
+      const radios = document.getElementsByName('pair');
+      let total = 0;
+      radios.forEach(radio => {
+        if (radio.checked) {
+          if (radio.value == '1') total = 195.00;
+          else if (radio.value == '2') total = 345.00;
+          else if (radio.value == '3') total = 528.00;
+        }
+      });
+     document.getElementById('total').innerText = `Total: DKK ${total.toFixed(2)}`;
+
+    }
+  </script>
+            </body>
+    </html>
